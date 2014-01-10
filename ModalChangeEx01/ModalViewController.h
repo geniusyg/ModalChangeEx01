@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  ModalViewController.h
 //  ModalChangeEx01
 //
 //  Created by SDT-1 on 2014. 1. 10..
@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-@property (weak, nonatomic) IBOutlet UITextField *mainTf;
+@interface ModalViewController : UIViewController
+@property NSString *msg;
 @end
+
+
+

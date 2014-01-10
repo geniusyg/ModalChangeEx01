@@ -7,12 +7,35 @@
 //
 
 #import "ViewController.h"
+#import "ModalViewController.h"
 
 @interface ViewController ()
+
 
 @end
 
 @implementation ViewController
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+	if([@"ModalSegue" isEqualToString:segue.identifier]) {
+		ModalViewController *mvc = segue.destinationViewController;
+		
+		mvc.msg = self.mainTf.text;
+	}
+}
+
+
+
+- (IBAction)showModal1:(id)sender {
+	[self performSegueWithIdentifier:@"ModalSegue" sender:self];
+}
+- (IBAction)showModal2:(id)sender {
+	UIStoryboard *sb = self.storyboard;
+	ModalViewController *mc = [sb instantiateViewControllerWithIdentifier:@"modalVC"];
+	mc.msg = self.mainTf.text;
+	
+	[self presentViewController:mc animated:YES completion:nil];
+}
 
 - (void)viewDidLoad
 {
@@ -27,3 +50,22 @@
 }
 
 @end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
